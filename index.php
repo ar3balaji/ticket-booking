@@ -1,6 +1,7 @@
 <?php
 	session_start(); 
 	include ('layout-manager.php');
+	echo "test";
 ?>
 <html>
 <head>
