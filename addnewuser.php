@@ -1,7 +1,7 @@
 <?php
 	include ("includes/header.php");
 	include ('includes/dbconn.php');
-	
+	echo "test";
 	$newuser   = $_POST['username'];
 	$newpasswd = $_POST['user-password'];
 	$insert = mysqli_query($con, "insert into users (`username`,`password`) values('".$newuser."','".$newpasswd."');");
