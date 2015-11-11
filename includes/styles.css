@@ -1,18 +1,30 @@
-* {margin:0; padding:0; outline:0;}
-#slide-panel{ background-color:#000;border-bottom-style:solid;border-bottom-width:2px;display:none;height:100px;margin:auto;}
-.slide {width:950px; margin:auto;}
-.btn-slide:link, .btn-slide:visited{color:#fff; float:right; display:block;font-size:14px; text-transform:uppercase; font-weight:bold;height:26px; padding:3px 0 3px 0;line-height:22px;text-align:center;text-decoration:none;width:100px; background-color:#000; font-family:Arial;}
-.loginform {width:950px; margin:auto; color:#999; font-family:Arial, Helvetica, sans-serif;}
-.formdetails {color:#FFF; font-size:14px;}
-.formdetails a:link, .formdetails a:visited {color:#FFF; font-size:14px; text-decoration:underline;}
-.loginform h2 {padding:10px 10px 10px 0; font-size:18px; font-weight:normal; text-transform:uppercase;}
-.loginform ul li {display:inline;}
-.loginform ul li a:link, .loginform ul li a:visited {color:#FFF; font-size:14px; text-decoration:underline;}
-
 * {
-	margin: 0px;
-	padding: 0px;
+	margin:0; 
+	padding:0; 
+	outline:0;
 }
+
+#slide-panel{border-bottom-style:solid;border-bottom-width:2px;display:none;height:100px;margin:auto;}
+
+.slide {width:950px; margin:auto;}
+
+.btn-slide:link, .btn-slide:visited{color:#fff; float:right; display:block;font-size:14px; text-transform:uppercase; font-weight:bold;height:26px; padding:3px 0 3px 0;line-height:22px;text-align:center;text-decoration:none;width:100px; background-color:#000; font-family:Arial;}
+
+.loginform {width:950px; margin:auto; font-family:Arial, Helvetica, sans-serif;}
+
+.formdetails {font-size:14px;}
+
+.formdetails a:link, .formdetails a:visited {font-size:14px; text-decoration:underline;}
+
+.formdetails input[type="submit"] {
+	cursor:hand;
+}
+
+.loginform h2 {padding:10px 10px 10px 0; font-size:18px; font-weight:normal; text-transform:uppercase;}
+
+.loginform ul li {display:inline;}
+
+.loginform ul li a:link, .loginform ul li a:visited {font-size:14px; text-decoration:underline;}
 
 h1 a:hover {
 	text-decoration: none;
@@ -50,8 +62,7 @@ div.forumdesc {
 	padding: 15px;
 }
 
-div.content {
-	background-color: #EFEFEF;
+div.content {	
 	margin-top: 15px;
 	width: 970px;
 	display: block;
@@ -59,6 +70,10 @@ div.content {
 	float: left;
 	padding: 15px;
 	font-size:22px;
+}
+
+div.content-status {
+	background-color: #EFEFEF;	
 }
 
 div.header h1 {
