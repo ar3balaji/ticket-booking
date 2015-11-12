@@ -16,10 +16,6 @@
 
 .formdetails a:link, .formdetails a:visited {font-size:14px; text-decoration:underline;}
 
-.formdetails input[type="submit"] {
-	cursor:hand;
-}
-
 .loginform h2 {padding:10px 10px 10px 0; font-size:18px; font-weight:normal; text-transform:uppercase;}
 
 .loginform ul li {display:inline;}
@@ -96,10 +92,10 @@ input[type="submit"], button {
 	color: #EFEFEF;
 	width: 200px;
 	padding: 7px;
-	font-family: Calibri;
 	background-image: linear-gradient(to bottom, #0066FF, #0099FF);
 	margin-top: 15px;
 	border: none;
+	cursor:hand;
 }
 
 input[type="text"],[type="password"] {
@@ -203,4 +199,17 @@ table.reply-table td {
 	padding-left: 15px;
 	vertical-align: top;
 	margin-bottom: 5px;
+}
+
+div.container {
+   margin-top:8px;
+   margin-bottom: 10px;
+   font-size: 18px
+}
+.error
+{
+   font-family: Verdana, Arial, sans-serif; 
+   font-size: 0.7em;
+   color: red;
+   background-color : #ffff00;
 }

@@ -27,7 +27,7 @@
 				<h2>Login</h2>
 				<div class="loginform">
 					<div class="formdetails">
-						<form action="/ticket-booking/validatelogin.php" method="post">
+						<form action="/ticket-booking/login.php" method="post">
 							<label for="log">Username : </label><input type="text" name="username" id="log" size="20" />&nbsp;&nbsp;&nbsp;&nbsp;
 							<label for="pwd">Password : </label><input type="password" name="user-password" id="pwd" size="20" />
 							<input type="submit" name="submit" value="Login" class="button" />&nbsp;&nbsp;<a href="/ticket-booking/register.php">Register</a>
@@ -59,6 +59,8 @@
 								echo "<h1 style='color: green;'>New user registered successfully!</h1>";
 							} else if ($_GET['status'] == 'login-fail') {
 								echo "<h1 style='color: red;'>Invalid username and/or password!</h1>";
+							} else if ($_GET['status'] == 'reg-fail') {
+								echo "<h1 style='color: red;'>New user registration Failed!</h1>";
 							}
 						}									
 				?>
