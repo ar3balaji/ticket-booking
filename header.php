@@ -19,19 +19,34 @@
 		<div id="slide-panel"><!--SLIDE PANEL STARTS-->
 			<?php if (isset($_SESSION['username'])){ ?>
 				<div class="loginform">
-					<h2>User Navigation</h2><ul>
-					<li><a href="/ticket-booking/">Home</a></li> |					
-					<li><a href="/ticket-booking/logout.php">Logout</a></li></ul>
+					<h2>User Navigation</h2>
+					<ul>
+						<li><a href="/ticket-booking/">Home</a></li> |			
+						<li><a href="/ticket-booking/">View Movies</a></li> |
+						<li><a href="/ticket-booking/">User Reviews</a></li> |
+						<li><a href="/ticket-booking/">Add Theatres</a></li> |									
+						<li><a href="/ticket-booking/">Add Movies</a></li> |			
+						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
+						<li><a href="/ticket-booking/">Add Employee</a></li> |			
+						<li><a href="/ticket-booking/">Create Admin</a></li> |			
+						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
+					</ul>
 				</div><!--loginform ends-->
 			<?php } else { ?>
-				<h2>Login</h2>
+				<h2> 
+					Login
+					<span style="float:right">
+						<a href="/ticket-booking/register.php">Register</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/index.php">User Reviews</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
+					</span>
+				</h2>
 				<div class="loginform">
 					<div class="formdetails">
 						<form action="/ticket-booking/login.php" method="post">
 							<label for="log">Username : </label><input type="text" name="username" id="log" size="20" />&nbsp;&nbsp;&nbsp;&nbsp;
 							<label for="pwd">Password : </label><input type="password" name="user-password" id="pwd" size="20" />
-							<input type="submit" name="submit" value="Login" class="button" />&nbsp;&nbsp;<a href="/ticket-booking/register.php">Register</a>
-							&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
+							<input type="submit" name="submit" value="Login" class="button" />						
 						</form>
 					</div>					
 				</div><!--loginform ends-->			

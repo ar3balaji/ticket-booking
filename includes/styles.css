@@ -98,7 +98,7 @@ input[type="submit"], button {
 	cursor:hand;
 }
 
-input[type="text"],[type="password"] {
+input[type="text"],[type="password"] ,select{
 	border-radius: 15px;
 	width: 200px;
 	padding: 7px;
