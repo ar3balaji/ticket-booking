@@ -1,5 +1,4 @@
-<?php
-	include ("includes/header.php");
+<?php	
 	include ('includes/dbconn.php');	
 	$conn = oci_connect($dbUserName, $dbPassword, $db);	
 	$emailid   = $_POST['email'];
