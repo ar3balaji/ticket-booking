@@ -1,7 +1,5 @@
 <?php 
-	$host = 'localhost';
-	$username = 'root';
-	$password = '';
-	$dbname = 'ticket-booking';
-	$con = mysqli_connect($host,$username,$password,$dbname);
+	$db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = fourier.cs.iit.edu)(PORT = 1521)))(CONNECT_DATA=(SID=orcl)))";
+	$dbUserName = 'balambad';
+	$dbPassword = 'iso*help';
 ?>
