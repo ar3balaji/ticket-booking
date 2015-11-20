@@ -26,7 +26,7 @@
 						<li><a href="/ticket-booking/">Discussion Forum</a></li> |
 						<li><a href="/ticket-booking/">Add Theatres</a></li> |									
 						<li><a href="/ticket-booking/">Add Movies</a></li> |			
-						<li><a href="/ticket-booking/workSchedule.php">Work Schedule</a></li> |			
+						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/">Create Admin</a></li> |			
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
