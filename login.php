@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	
 	include ('includes/dbconn.php');
 	
 	$username = $_POST['username'];
@@ -12,6 +11,7 @@
 	$results=array();
 	$numrows = oci_fetch_all($resource, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 	oci_close($conn);
+	
 	if ($numrows != 0) {
 		$_SESSION['username'] = $username;
 		header("Location:/ticket-booking/index.php?status=logged-in");

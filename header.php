@@ -17,18 +17,30 @@
 <body>
 	<div class="pane">
 		<div id="slide-panel"><!--SLIDE PANEL STARTS-->
-			<?php if (isset($_SESSION['username'])){ ?>
+			<?php if (isset($_SESSION['username'])){?>
 				<div class="loginform">
+				
 					<h2>User Navigation</h2>
 					<ul>
-						<li><a href="/ticket-booking/">Home</a></li> |			
+						<li><a href="/ticket-booking/">Home</a></li> |
 						<li><a href="/ticket-booking/">View Movies</a></li> |
 						<li><a href="/ticket-booking/">Discussion Forum</a></li> |
+						<?php
+							include ('includes/dbconn.php');	
+							$con = oci_connect($dbUserName, $dbPassword, $db);
+							$resource = oci_parse($con, "SELECT * FROM userrole WHERE userid = '".$_SESSION['username']."' AND upper(role) ='ADMIN'");
+							oci_execute($resource, OCI_DEFAULT);	
+							$results=array();
+							$numrows = oci_fetch_all($resource, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+							oci_close($con);
+							if($numrows>0) {
+						?>						
 						<li><a href="/ticket-booking/">Add Theatres</a></li> |									
 						<li><a href="/ticket-booking/">Add Movies</a></li> |			
 						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/">Create Admin</a></li> |			
+						<?php } ?>						
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
 					</ul>
 				</div><!--loginform ends-->

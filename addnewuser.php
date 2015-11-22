@@ -21,6 +21,7 @@
 	}	
 	else {		
 		header("Location: /ticket-booking/index.php?status=reg-fail");
+		oci_rollback($conn);
 	}
 	
 	oci_close($conn);	

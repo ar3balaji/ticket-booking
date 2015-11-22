@@ -22,6 +22,17 @@
 
 .loginform ul li a:link, .loginform ul li a:visited {font-size:14px; text-decoration:underline;}
 
+div.theatres-selection {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	margin: 5% 0 0 0;
+}
+
+p {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+}
+
 h1 a:hover {
 	text-decoration: none;
 }
@@ -83,10 +94,6 @@ a {
 	color: #0066FF;
 }
 
-p{
-	font-family: Calibri;
-}
-
 input[type="submit"], button {
 	border-radius: 4px;
 	color: #EFEFEF;
@@ -106,6 +113,40 @@ input[type="text"],[type="password"] ,select{
 	margin-top: 15px;
 	border: none;
 	background-color: #DFDFDF;
+}
+
+#theatre-search-content{
+	border-radius: 15px;
+	width: 500px;
+	padding: 7px;
+	font-family: Arial;
+	margin-top: 15px;
+	border: none;
+	background-color: #DFDFDF;
+}
+
+div .movie span.title {
+	font-weight:bold;
+}
+
+span.movieOrder {
+	float:right;
+}
+
+div.movie {
+	background-color: #DFDFDF;
+	margin-top: 15px;
+	width: 970px;
+	display: block;
+	position: relative;
+	float: left;
+	padding: 15px;
+	font-size:22px;
+	font-family: Century Gothic;
+}
+
+::-webkit-input-placeholder {
+    color:    Gray;
 }
 
 input[type="text"]:focus {
@@ -128,7 +169,7 @@ button:focus {
 	outline-style: none;
 }	
 
-table.category-table {
+table.category-table,table #users-theatre-selection {
 	width: 100%;
 	margin-bottom: 35px;
 	font-family: Calibri;
@@ -161,27 +202,6 @@ table.topic-table th {
 table.topic-table td {
 	font-size: 12pt;
 	padding: 4px;
-}
-
-input#topic {
-	border-radius: 15px;
-	width: 350px;
-	padding: 7px;
-	font-family: Arial;
-	margin-top: 15px;
-	border: none;
-	background-color: #DFDFDF;
-}
-
-textarea {
-	width: 350px;
-	height: 100px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-
-a:hover {
-	text-decoration: underline;
 }
 
 table.reply-table {
