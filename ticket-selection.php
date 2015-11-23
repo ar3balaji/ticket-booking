@@ -44,7 +44,7 @@
 
 <div class="movie"> 
 	<?php
-		echo "<form action='/ticket-booking/order.php' onsubmit='return validateTickets()'>";
+		echo "<form action='/ticket-booking/order.php' onsubmit='return validateTickets()' method='post'>";
 		echo "<span class='title'>Theatre: </span><span class='titleValue'>".$_POST['theatrename']."</span>";
 		echo "<br>";
 		echo "<span class='title'>Movie: </span><span class='titleValue'>".$_POST['moviename']."</span><span class='rating'>&nbsp;&nbsp;&nbsp;<img src='includes/likes.png'/ title='Users Rating'>".$_POST['movierating']."%</span>";
@@ -58,6 +58,7 @@
 		echo "<input type=hidden name='theatrename' value=\"".$_POST['theatrename']."\">";
 		echo "<input type=hidden name='moviename' value=\"".$_POST['moviename']."\">";				
 		echo "<input type=hidden name='movierating' value=\"".$_POST['movierating']."\">";	
+		echo "<input type=hidden name='moviestarttime' value=\"".$_POST['moviestarttime']."\">";	
 		echo "<input type=hidden name='ticketselection' id='ticketselection' value=''>";	
 		echo "</form>";
 	?>
