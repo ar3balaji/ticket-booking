@@ -7,7 +7,7 @@
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
 ?>
-<center><h1>Page Still in development</h1></center>
+<h1>Page still in development</h1>
 <?php
 	include('footer.php');
 	oci_close($conn);

@@ -25,7 +25,7 @@
 		$searchQuery = "select * from theatres where upper(theatrename) like '%".strtoupper($searchText)."%'";
 		if(is_numeric($searchText)){
 			$searchQuery = "select * from theatres where zip = ".$searchText;
-		}		
+		}				
 		$theatreids = oci_parse($conn, $searchQuery);
 		oci_execute($theatreids);
 		while (($row = oci_fetch_array($theatreids, OCI_BOTH)) != false) {		
@@ -39,7 +39,7 @@
 				$movieid = searchForMovieId($movieshowRow['MOVIEID'],$result);				
 				echo "<br>";
 				echo "<div class='movie'>";
-				echo "<form action='/ticket-booking/order.php' method='post'>";
+				echo "<form action='/ticket-booking/ticket-selection.php' method='post'>";
 				echo "<span class='title'>Theatre: </span><span class='titleValue'>".$row['THEATRENAME']."</span>";
 				echo "<br>";
 				echo "<span class='title'>Movie: </span><span class='titleValue'>".$result[$movieid]['MOVIENAME']."</span><span class='rating'>&nbsp;&nbsp;&nbsp;<img src='includes/likes.png'/ title='Users Rating'>".number_format( ($result[$movieid]['RATING'] / 10) * 100, 0)."%</span>";
@@ -49,7 +49,11 @@
 				echo "<input type=hidden name='showid' value=\"".$movieshowRow['SHOWID']."\">";
 				echo "<input type=hidden name='theatreid' value=\"".$movieshowRow['THEATREID']."\">";
 				echo "<input type=hidden name='movieid' value=\"".$movieshowRow['MOVIEID']."\">";
-				echo "<input type=hidden name='screenid' value=\"".$movieshowRow['SCREENID']."\">";				
+				echo "<input type=hidden name='screenid' value=\"".$movieshowRow['SCREENID']."\">";	
+				echo "<input type=hidden name='theatrename' value=\"".$row['THEATRENAME']."\">";
+				echo "<input type=hidden name='moviename' value=\"".$result[$movieid]['MOVIENAME']."\">";				
+				echo "<input type=hidden name='moviestarttime' value=\"".$movieshowRow['STARTTIME']."\">";				
+				echo "<input type=hidden name='movierating' value=\"".number_format( ($result[$movieid]['RATING'] / 10) * 100, 0)."\">";	
 				echo "</form>";
 				echo "</div>";
 			}
@@ -70,9 +74,10 @@
 				oci_execute($theatreDetails);				
 				echo "<br>";
 				echo "<div class='movie'>";
-				echo "<form action='/ticket-booking/order.php' method='post'>";
+				echo "<form action='/ticket-booking/ticket-selection.php' method='post'>";
 				while (oci_fetch($theatreDetails)) {
 					echo "<span class='title'>Theatre: </span><span class='titleValue'>".$theatrename."</span>";
+					echo "<input type=hidden name='theatrename' value=\"".$theatrename."\">";
 				}				
 				echo "<br>";
 				echo "<span class='title'>Movie: </span><span class='titleValue'>".$row['MOVIENAME']."</span><span class='rating'>&nbsp;&nbsp;&nbsp;<img src='includes/likes.png'/ title='Users Rating'>".number_format( ($row['RATING'] / 10) * 100, 0)."%</span>";
@@ -82,7 +87,10 @@
 				echo "<input type=hidden name='showid' value=\"".$movieshowRow['SHOWID']."\">";
 				echo "<input type=hidden name='theatreid' value=\"".$movieshowRow['THEATREID']."\">";
 				echo "<input type=hidden name='movieid' value=\"".$movieshowRow['MOVIEID']."\">";
-				echo "<input type=hidden name='screenid' value=\"".$movieshowRow['SCREENID']."\">";				
+				echo "<input type=hidden name='screenid' value=\"".$movieshowRow['SCREENID']."\">";							
+				echo "<input type=hidden name='moviename' value=\"".$row['MOVIENAME']."\">";			
+				echo "<input type=hidden name='moviestarttime' value=\"".$movieshowRow['STARTTIME']."\">";					
+				echo "<input type=hidden name='movierating' value=\"".number_format( ($row['RATING'] / 10) * 100, 0)."\">";					
 				echo "</form>";
 				echo "</div>";
 			}

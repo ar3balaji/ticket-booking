@@ -233,3 +233,7 @@ div.container {
    color: red;
    background-color : #ffff00;
 }
+
+.seatDisabled {
+	background-color:lightgray;
+}
