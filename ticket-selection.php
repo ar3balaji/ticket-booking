@@ -8,14 +8,25 @@
 	}
 ?>
 <script type="text/javascript">
-	$(document).ready(function(){
-		function validateTickets() {
-			$('table.colorTable').find('tr').each(function (i, el) {
-			var $tds = $(this).find('td');
-				alert($tds.class);
+	function validateTickets() {	
+			var selectedSeats = "";
+			var isSelected = false;
+			$('table.colorTable').find('td.selected').each(function (i, el) {
+				selectedSeats +=$(this).html().trim()+",";
+				isSelected=true;
 			});
-			return false;
-		}
+			if( isSelected===false ) {
+				$(".content-status").html("Ticket Selection is not Done!!");
+				$(".content-status").css("color","red");
+				$(".content-status").css("text-align","center");
+				return false;
+			} else {
+				$("#ticketselection").val(selectedSeats);
+				return true;
+			}
+	}
+	
+	$(document).ready(function(){		
 		$('td').click(function() {			
 			if(!$(this).hasClass('seatDisabled')) {
 				if($(this).hasClass('selected')) {
@@ -27,13 +38,13 @@
 					$(this).addClass('selected');
 				}
 			}
-		});
+		});		
 	});
 </script>
 
 <div class="movie"> 
 	<?php
-		echo "<form action='/ticket-booking/order.php' onsubmit='validateTickets()' method='post'>";
+		echo "<form action='/ticket-booking/order.php' onsubmit='return validateTickets()'>";
 		echo "<span class='title'>Theatre: </span><span class='titleValue'>".$_POST['theatrename']."</span>";
 		echo "<br>";
 		echo "<span class='title'>Movie: </span><span class='titleValue'>".$_POST['moviename']."</span><span class='rating'>&nbsp;&nbsp;&nbsp;<img src='includes/likes.png'/ title='Users Rating'>".$_POST['movierating']."%</span>";
@@ -47,7 +58,7 @@
 		echo "<input type=hidden name='theatrename' value=\"".$_POST['theatrename']."\">";
 		echo "<input type=hidden name='moviename' value=\"".$_POST['moviename']."\">";				
 		echo "<input type=hidden name='movierating' value=\"".$_POST['movierating']."\">";	
-		echo "<input type=hidden name='ticketselection' value=''>";	
+		echo "<input type=hidden name='ticketselection' id='ticketselection' value=''>";	
 		echo "</form>";
 	?>
 </div>
