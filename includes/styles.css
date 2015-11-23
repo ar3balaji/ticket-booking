@@ -125,7 +125,7 @@ input[type="text"],[type="password"] ,select{
 	background-color: #DFDFDF;
 }
 
-div .movie span.title {
+span.title {
 	font-weight:bold;
 }
 
@@ -236,4 +236,8 @@ div.container {
 
 .seatDisabled {
 	background-color:lightgray;
+}
+div#guest-data {
+	background-color:white;
+	padding: 20px 0 20px 0;
 }
