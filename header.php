@@ -24,7 +24,7 @@
 					<ul>
 						<li><a href="/ticket-booking/">Home</a></li> |
 						<li><a href="/ticket-booking/">View Movies</a></li> |
-						<li><a href="/ticket-booking/">Discussion Forum</a></li> |
+						<li><a href="/ticket-booking/discussion-forum.php">Discussion Forum</a></li> |
 						<?php
 							include ('includes/dbconn.php');	
 							$con = oci_connect($dbUserName, $dbPassword, $db);
@@ -49,7 +49,7 @@
 					Login
 					<span style="float:right">
 						<a href="/ticket-booking/register.php">Register</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Discussion Forum</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/discussion-forum.php">Discussion Forum</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
 					</span>
 				</h2>
