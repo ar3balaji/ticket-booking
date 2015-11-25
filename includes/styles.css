@@ -244,3 +244,7 @@ div#guest-data {
 #admin-emailid{
 	background-color:white;
 }
+
+span.more-details {
+	cursor:pointer;
+}

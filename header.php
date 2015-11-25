@@ -24,7 +24,7 @@
 					<ul>
 						<li><a href="/ticket-booking/">Home</a></li> |
 						<li><a href="/ticket-booking/my-account.php">My Account</a></li> |
-						<li><a href="/ticket-booking/">Movies</a></li> |
+						<li><a href="/ticket-booking/movies.php">Movies</a></li> |
 						<li><a href="/ticket-booking/discussion-forum.php">Discussion Forum</a></li> |
 						<?php
 							include ('includes/dbconn.php');	
@@ -53,7 +53,7 @@
 					<span style="float:right">
 						<a href="/ticket-booking/register.php">Register</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/discussion-forum.php">Discussion Forum</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Movies</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/movies.php">Movies</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
 					</span>
 				</h2>
