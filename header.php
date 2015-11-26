@@ -23,7 +23,8 @@
 					<h2>User Navigation</h2>
 					<ul>
 						<li><a href="/ticket-booking/">Home</a></li> |
-						<li><a href="/ticket-booking/">View Movies</a></li> |
+						<li><a href="/ticket-booking/my-account.php">My Account</a></li> |
+						<li><a href="/ticket-booking/movies.php">Movies</a></li> |
 						<li><a href="/ticket-booking/discussion-forum.php">Discussion Forum</a></li> |
 						
 						<?php
@@ -41,7 +42,9 @@
                         <li><a href="/ticket-booking/screens.php">Add Screens</a></li> |							
 						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
-						<li><a href="/ticket-booking/">Create Admin</a></li> |			
+						<li><a href="/ticket-booking/make-admin.php">Make Admin</a></li> |			
+						<li><a href="/ticket-booking/">Guest Users</a></li> |			
+						<li><a href="/ticket-booking/">Query Interface</a></li> |			
 						<?php } ?>						
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
 					</ul>
@@ -52,6 +55,7 @@
 					<span style="float:right">
 						<a href="/ticket-booking/register.php">Register</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/discussion-forum.php">Discussion Forum</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/movies.php">Movies</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
 					</span>
 				</h2>

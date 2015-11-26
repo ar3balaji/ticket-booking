@@ -10,7 +10,7 @@
 
 .btn-slide:link, .btn-slide:visited{color:#fff; float:right; display:block;font-size:14px; text-transform:uppercase; font-weight:bold;height:26px; padding:3px 0 3px 0;line-height:22px;text-align:center;text-decoration:none;width:100px; background-color:#000; font-family:Arial;}
 
-.loginform {width:950px; margin:auto; font-family:Arial, Helvetica, sans-serif;}
+.loginform {width:1000px; margin:auto; font-family:Arial, Helvetica, sans-serif;}
 
 .formdetails {font-size:14px;}
 
@@ -44,7 +44,7 @@ h1, h2, h3 {
 }
 
 div.pane {
-	width: 1000px;
+	width: 1050px;
 	margin: 0px auto;
 }
 
@@ -71,7 +71,7 @@ div.forumdesc {
 
 div.content {	
 	margin-top: 15px;
-	width: 970px;
+	width: 1000px;
 	display: block;
 	position: relative;
 	float: left;
@@ -125,7 +125,7 @@ input[type="text"],[type="password"] ,select{
 	background-color: #DFDFDF;
 }
 
-div .movie span.title {
+span.title {
 	font-weight:bold;
 }
 
@@ -236,4 +236,15 @@ div.container {
 
 .seatDisabled {
 	background-color:lightgray;
+}
+div#guest-data {
+	background-color:white;
+	padding: 20px 0 20px 0;
+}
+#admin-emailid{
+	background-color:white;
+}
+
+span.more-details {
+	cursor:pointer;
 }

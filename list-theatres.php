@@ -29,7 +29,7 @@
 		$theatreids = oci_parse($conn, $searchQuery);
 		oci_execute($theatreids);
 		while (($row = oci_fetch_array($theatreids, OCI_BOTH)) != false) {		
-			$movieshows = oci_parse($conn, "select showid,movieid,screenid,theatreid,to_char(starttime, 'yyyy-mm-dd hh24:mi:ss') as starttime from movieshow where starttime >=sysdate and theatreid = ".$row['THEATREID']."order by starttime");
+			$movieshows = oci_parse($conn, "select showid,movieid,screenid,theatreid,to_char(starttime, 'yyyy-mm-dd hh24:mi:ss') as starttime, price from movieshow where starttime >=sysdate and theatreid = ".$row['THEATREID']."order by starttime");
 			$uniqueMovies = oci_parse($conn, "select movieid,moviename,rating from movies where movieid in (select unique movieid from movieshow where THEATREID =".$row['THEATREID'].")");
 			oci_execute($uniqueMovies);
 			oci_fetch_all($uniqueMovies, $result, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
@@ -53,6 +53,7 @@
 				echo "<input type=hidden name='theatrename' value=\"".$row['THEATRENAME']."\">";
 				echo "<input type=hidden name='moviename' value=\"".$result[$movieid]['MOVIENAME']."\">";				
 				echo "<input type=hidden name='moviestarttime' value=\"".$movieshowRow['STARTTIME']."\">";				
+				echo "<input type=hidden name='ticketprice' value=\"".$movieshowRow['PRICE']."\">";				
 				echo "<input type=hidden name='movierating' value=\"".number_format( ($result[$movieid]['RATING'] / 10) * 100, 0)."\">";	
 				echo "</form>";
 				echo "</div>";
@@ -65,7 +66,7 @@
 		$movieMatches = oci_parse($conn, $searchQuery);
 		oci_execute($movieMatches);
 		while (($row = oci_fetch_array($movieMatches, OCI_BOTH)) != false) {		
-			$movieshows = oci_parse($conn, "select showid,movieid,screenid,theatreid,to_char(starttime, 'yyyy-mm-dd hh24:mi:ss') as starttime from movieshow where starttime >=sysdate and movieid = ".$row['MOVIEID']."order by starttime");			
+			$movieshows = oci_parse($conn, "select showid,movieid,screenid,theatreid,to_char(starttime, 'yyyy-mm-dd hh24:mi:ss') as starttime, price from movieshow where starttime >=sysdate and movieid = ".$row['MOVIEID']."order by starttime");			
 			oci_execute($movieshows);			
 			while (($movieshowRow = oci_fetch_array($movieshows, OCI_BOTH)) != false) {								
 				$starttime = date_format(date_create($movieshowRow['STARTTIME']), 'Y-m-d H:i:s');
@@ -89,7 +90,8 @@
 				echo "<input type=hidden name='movieid' value=\"".$movieshowRow['MOVIEID']."\">";
 				echo "<input type=hidden name='screenid' value=\"".$movieshowRow['SCREENID']."\">";							
 				echo "<input type=hidden name='moviename' value=\"".$row['MOVIENAME']."\">";			
-				echo "<input type=hidden name='moviestarttime' value=\"".$movieshowRow['STARTTIME']."\">";					
+				echo "<input type=hidden name='moviestarttime' value=\"".$movieshowRow['STARTTIME']."\">";		
+				echo "<input type=hidden name='ticketprice' value=\"".$movieshowRow['PRICE']."\">";				
 				echo "<input type=hidden name='movierating' value=\"".number_format( ($row['RATING'] / 10) * 100, 0)."\">";					
 				echo "</form>";
 				echo "</div>";

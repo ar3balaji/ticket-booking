@@ -28,7 +28,7 @@
 	
 	$(document).ready(function(){		
 		$('td').click(function() {			
-			if(!$(this).hasClass('seatDisabled')) {
+			if(!$(this).hasClass('seatDisabled') && $(this).hasClass('clickable')) {
 				if($(this).hasClass('selected')) {
 					$(this).css('background-color','white');
 					$(this).removeClass('selected');
@@ -58,7 +58,8 @@
 		echo "<input type=hidden name='theatrename' value=\"".$_POST['theatrename']."\">";
 		echo "<input type=hidden name='moviename' value=\"".$_POST['moviename']."\">";				
 		echo "<input type=hidden name='movierating' value=\"".$_POST['movierating']."\">";	
-		echo "<input type=hidden name='moviestarttime' value=\"".$_POST['moviestarttime']."\">";	
+		echo "<input type=hidden name='moviestarttime' value=\"".$_POST['moviestarttime']."\">";
+		echo "<input type=hidden name='ticketprice' value=\"".$_POST['ticketprice']."\">";				
 		echo "<input type=hidden name='ticketselection' id='ticketselection' value=''>";	
 		echo "</form>";
 	?>
@@ -81,8 +82,13 @@
 				
 				$bookedSeatsQuery = oci_parse($conn, "select seatno from tickets where showid=".$_POST['showid']." order by seatno");				
 				oci_execute($bookedSeatsQuery);
-				$bTicketsNoOfRows = oci_fetch_all($bookedSeatsQuery, $bookedUserSeats,null, null, OCI_FETCHSTATEMENT_BY_ROW);	
-				$bookedTickets =array_fill(0, $bTicketsNoOfRows, 0);				
+				$bTicketsNoOfRows = oci_fetch_all($bookedSeatsQuery, $bookedUserSeats,null, null, OCI_FETCHSTATEMENT_BY_ROW);
+				$bookedTickets;
+				if($bTicketsNoOfRows !== 0) {
+					$bookedTickets=array_fill(0, $bTicketsNoOfRows, 0);
+				} else {
+					$bookedTickets=array_fill(0, 1, 0);
+				}		
 				
 				for($j=0;$j<count($bookedUserSeats);$j++) {
 					$bookedTickets[$j] = $bookedUserSeats[$j]['SEATNO'];
@@ -111,7 +117,7 @@
 							if (in_array($seatVar, $bookedTickets)) {								
 								$tdVal = $tdVal."class='seatDisabled' ";
 							}
-							$tdVal = $tdVal."style=\"width:50px;border: 1px solid black;cursor:pointer\" class ='seatno".$seatVar."'>".$seatVar."</td>";
+							$tdVal = $tdVal."style=\"width:50px;border: 1px solid black;cursor:pointer\" class ='seatno".$seatVar." clickable'>".$seatVar."</td>";
 							echo $tdVal;
 							if($i==4) {
 								echo "<td>Walking Area</td>";
