@@ -25,6 +25,7 @@
 						<li><a href="/ticket-booking/">Home</a></li> |
 						<li><a href="/ticket-booking/">View Movies</a></li> |
 						<li><a href="/ticket-booking/discussion-forum.php">Discussion Forum</a></li> |
+						
 						<?php
 							include ('includes/dbconn.php');	
 							$con = oci_connect($dbUserName, $dbPassword, $db);
@@ -35,8 +36,9 @@
 							oci_close($con);
 							if($numrows>0) {
 						?>						
-						<li><a href="/ticket-booking/">Add Theatres</a></li> |									
-						<li><a href="/ticket-booking/">Add Movies</a></li> |			
+						<li><a href="/ticket-booking/theatres.php">Add Theatres</a></li> |									
+						<li><a href="/ticket-booking/movies.php">Add Movies</a></li> |	
+                        <li><a href="/ticket-booking/screens.php">Add Screens</a></li> |							
 						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/">Create Admin</a></li> |			
