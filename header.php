@@ -36,8 +36,9 @@
 							oci_close($con);
 							if($numrows>0) {
 						?>						
-						<li><a href="/ticket-booking/">Add Theatres</a></li> |									
-						<li><a href="/ticket-booking/">Add Movies</a></li> |			
+						<li><a href="/ticket-booking/theatres.php">Add Theatres</a></li> |	
+                         <li><a href="/ticket-booking/screens.php">Add Screens</a></li> |						
+						<li><a href="/ticket-booking/add-movies.php">Add Movies</a></li> |			
 						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/make-admin.php">Make Admin</a></li> |			
