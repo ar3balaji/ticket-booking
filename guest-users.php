@@ -22,10 +22,16 @@
 			print  "\n</pre>\n";			   
 		} 
 		else {
-			usleep(100); 
-			   print "<TABLE border \"1\">"; 
-			   $first = 0; 
-			   while ($row = @oci_fetch_assoc($res)){ 
+			$results=array();
+			$numrows = oci_fetch_all($res, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);			
+			if($numrows == 0) {
+				echo "Guest Users are not available";
+			} else {
+				oci_execute($res);
+				usleep(100); 
+				print "<TABLE border \"1\">"; 
+				$first = 0; 
+				while ($row = @oci_fetch_assoc($res)){ 
 					   if (!$first){ 
 							   $first = 1; 
 							   print "<TR><TH>"; 
@@ -35,8 +41,9 @@
 					   print "<TR><TD>"; 
 					   print @implode("</TD><TD>",array_values($row)); 
 					   print "</TD></TR>\n"; 
-			   } 
-			   print "</TABLE>"; 
+				} 
+				print "</TABLE>"; 
+			}
 		}
 ?>
 <?php
