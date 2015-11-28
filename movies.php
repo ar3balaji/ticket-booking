@@ -65,6 +65,14 @@
 			echo "<br>";
 			echo "<span class='title'>Movie Studio: </span> <span class='titleValue'>".$row['STUDIO']."</span>&nbsp;&nbsp;";
 			echo "<span class='title'>Description: </span> <span class='titleValue'>".$row['DESCRIPTION']."</span>";			
+			$actorQuery = "select firstname, lastname, role from actor, starsin where actor.ACTORID = starsin.ACTORID and starsin.MOVIEID=".$row['MOVIEID'];
+			$actors = oci_parse($conn, $actorQuery);
+			oci_execute($actors);
+			while (($actorrow = oci_fetch_array($actors, OCI_BOTH)) != false) {
+				echo "<br>";
+				echo "<span class='title'>Actor: </span> <span class='titleValue'>".$actorrow['FIRSTNAME']." ".$actorrow['LASTNAME']."</span>&nbsp;&nbsp;";
+				echo "<span class='title'>Actor Role: </span> <span class='titleValue'>".$actorrow['ROLE']."</span>";						
+			}			
 			echo "</div>";
 			echo "</div>";
 		}

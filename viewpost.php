@@ -30,7 +30,7 @@ if (oci_execute($res)){
                } 
                print "<TR><TD>"; 
                print @implode("</TD><TD>",array_values($row)); 
-               print "</TD><TD><form><input type='text' name='comment' value='comment' /><input type='submit' name='submit' value='comment' /></form></TD></TR>\n"; 
+               print "</TD><TD><a href='/ticket-booking/comment.php'>comment</a></TD></TR>\n"; 
        } 
        print "</TABLE>"; 
 } 
