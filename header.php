@@ -57,6 +57,7 @@
 						&nbsp;&nbsp;<a href="/ticket-booking/discussion-forum.php">Discussion Forum</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/movies.php">Movies</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/get-tickets.php">Get Booked Tickets</a>					
 					</span>
 				</h2>
 				<div class="loginform">
