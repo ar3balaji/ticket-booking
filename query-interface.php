@@ -25,6 +25,7 @@
 		<input type="radio" name="query-type" value="select" checked="checked">&nbsp;SELECT<br>
 		<input type="radio" name="query-type" value="insert">&nbsp;INSERT<br>
 		<input type="radio" name="query-type" value="update">&nbsp;UPDATE<br>
+		<input type="radio" name="query-type" value="delete">&nbsp;DELETE<br>
 		Query Statement:&nbsp;<input type='text' style="width:80%;height:10%;" name='query' id='query'/><br><br><span id='query_error' class='error'></span><br>
 		<input type='submit' name='Submit' value='Get Results!!' />
 	</form>

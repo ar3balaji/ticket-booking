@@ -19,7 +19,7 @@
 		if (!$r){ 
 			$e = oci_error($res);  // For oci_execute errors pass the statement handle
 			print htmlentities($e['message']);
-			print "\n<pre>\n";
+			print "\n<pre style='color:red'>\n";
 			print htmlentities($e['sqltext']);
 			printf("\n%".($e['offset']+1)."s", "^");
 			print  "\n</pre>\n";			   
@@ -43,7 +43,15 @@
 		}
 	}
 	else {
-		echo "Still In Development";
+		$queryinsert = oci_execute(oci_parse($conn,$query),OCI_DEFAULT);
+		if($queryinsert) {
+			oci_commit($conn);
+			echo "<span style='color:green'>Modification done Successfully!!</span>";
+		}	
+		else {		
+			echo "<span color='red'>Modification Failed</span>";
+			oci_rollback($conn);
+		}
 	}
 ?>
 <?php
