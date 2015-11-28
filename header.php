@@ -26,7 +26,7 @@
 						<li><a href="/ticket-booking/my-account.php">My Account</a></li> |
 						<li><a href="/ticket-booking/movies.php">Movies</a></li> |
 						<li><a href="/ticket-booking/discussion-forum.php">Discussion Forum</a></li> |
-						
+						<li><a href="/ticket-booking/get-tickets.php">Get Booked Tickets</a></li> |						
 						<?php
 							include ('includes/dbconn.php');	
 							$con = oci_connect($dbUserName, $dbPassword, $db);
@@ -43,7 +43,7 @@
 						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/make-admin.php">Make Admin</a></li> |			
-						<li><a href="/ticket-booking/">Guest Users</a></li> |			
+						<li><a href="/ticket-booking/guest-users.php">Guest Users</a></li> |			
 						<li><a href="/ticket-booking/query-interface.php">Query Interface</a></li> |			
 						<?php } ?>						
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
