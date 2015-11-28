@@ -44,7 +44,7 @@
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/make-admin.php">Make Admin</a></li> |			
 						<li><a href="/ticket-booking/">Guest Users</a></li> |			
-						<li><a href="/ticket-booking/">Query Interface</a></li> |			
+						<li><a href="/ticket-booking/query-interface.php">Query Interface</a></li> |			
 						<?php } ?>						
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
 					</ul>
