@@ -241,10 +241,13 @@ div#guest-data {
 	background-color:white;
 	padding: 20px 0 20px 0;
 }
-#admin-emailid,#query,#emailid{
+#admin-emailid,#query,#emailid,#edit_phoneno{
 	background-color:white;
 }
 
 span.more-details {
 	cursor:pointer;
+}
+#edit-phonenoid,#notifications {
+	text-decoration:underline;cursor:pointer;
 }
