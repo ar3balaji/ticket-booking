@@ -14,7 +14,7 @@
 <?php 
 include ('includes/dbconn.php');
 $oconn = oci_connect($dbUserName, $dbPassword, $db);
-$query = "select title,content from (select * from post order by postid desc) where ROWNUM <= 10"; 
+$query = "select title,content,postid, visits from (select * from post order by postid desc) where ROWNUM <= 10"; 
 $res = oci_parse($oconn,$query); 
 usleep(100); 
 if (oci_execute($res)){ 
@@ -30,7 +30,7 @@ if (oci_execute($res)){
                } 
                print "<TR><TD>"; 
                print @implode("</TD><TD>",array_values($row)); 
-               print "</TD><TD><a href='/ticket-booking/comment.php'>comment</a></TD></TR>\n"; 
+               print "</TD><TD><a href='/ticket-booking/visit.php?postid=".$row['POSTID']."'>visit</a></TD></TR>\n"; 
        } 
        print "</TABLE>"; 
 } 
