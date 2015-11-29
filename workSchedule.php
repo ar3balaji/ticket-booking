@@ -299,7 +299,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 				<span id='register_edtm' class='error'></span>
 			</div>
 			<div class='container'>
-				<input type='submit' name='Submit' value='Register' />
+				<input type='submit' name='Submit' value='Update' />
 			</div>
 		</fieldset>
 	</form>

@@ -1,3 +1,12 @@
+<?php
+	include('header.php');
+	include ('includes/dbconn.php');	
+	$conn = oci_connect($dbUserName, $dbPassword, $db);
+	if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+?>
 <?php	
 	include ('includes/dbconn.php');	
 	$conn = oci_connect($dbUserName, $dbPassword, $db);	
@@ -10,12 +19,17 @@
 	
 	if($insert_screens) {
 		oci_commit($conn);
-		header("Location: /ticket-booking/index.php");
+		echo "<span style='color:green'>Screen added successfully";
 	}	
 	else {		
-		header("Location: /ticket-booking/index.php");
+		echo "<span style='color:red'>Failed to add theatre";
 		oci_rollback($conn);
 	}
 	
-	oci_close($conn);	
+		
+?>
+
+<?php
+	include('footer.php');
+	oci_close($conn);
 ?>
