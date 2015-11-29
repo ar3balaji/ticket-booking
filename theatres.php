@@ -1,12 +1,13 @@
 <?php
 	include('header.php');
 ?>
-<form name="theatres" action="addtheatres.php"  method="POST">		
+<form name="theatres" action="addtheatres.php"  method="POST">	
+<center>	
 		<fieldset >
 			<legend>ADD THEATRES</legend>		
 
 			<div class='container'>
-				<input type='submit' name='Submit' value='Register' />
+				<input type='submit' name='Submit' value='Add Theatre' />
 			</div>
 			<div class='container'>
 				<label for='theatrename' >Theatre Name*: </label><br>
@@ -56,6 +57,7 @@
 			
 			
 		</fieldset>
+		</center>
 	</form>
 
 

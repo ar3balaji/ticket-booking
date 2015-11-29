@@ -6,14 +6,14 @@
 	$theatreid = $_POST['theatreid'];
 	$seatcount = $_POST['seatcount'];
 	
-	$insert_screens = oci_execute(oci_parse($conn, "insert into screens (screenname,theatreid,seatcount) values('".$screenname."','".$theatreid."','".$seatcount."')"),OCI_DEFAULT);
+	$insert_screens = oci_execute(oci_parse($conn, "insert into screens (screenid,screenname,theatreid,seatcount) values(screen_id_seq.nextval,'".$screenname."','".$theatreid."','".$seatcount."')"),OCI_DEFAULT);
 	
 	if($insert_screens) {
 		oci_commit($conn);
-		header("Location: /ticket-booking/index.php?status=reg-success");
+		header("Location: /ticket-booking/index.php");
 	}	
 	else {		
-		header("Location: /ticket-booking/index.php?status=reg-fail");
+		header("Location: /ticket-booking/index.php");
 		oci_rollback($conn);
 	}
 	

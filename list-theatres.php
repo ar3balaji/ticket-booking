@@ -22,10 +22,11 @@
 	
 	$theatreSearchContent = $_POST['theatre-search-content'];
 	function getMoviesBasedOnZipOrTheatreName($searchText,$conn) {
+		$inside = "false";
 		$searchQuery = "select * from theatres where upper(theatrename) like '%".strtoupper($searchText)."%'";
 		if(is_numeric($searchText)){
-			$searchQuery = "select * from theatres where zip = ".$searchText;
-		}				
+			$searchQuery = "select * from theatres where zip = ".$searchText;			
+		}						
 		$theatreids = oci_parse($conn, $searchQuery);
 		oci_execute($theatreids);
 		while (($row = oci_fetch_array($theatreids, OCI_BOTH)) != false) {		
@@ -34,7 +35,8 @@
 			oci_execute($uniqueMovies);
 			oci_fetch_all($uniqueMovies, $result, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 			oci_execute($movieshows);			
-			while (($movieshowRow = oci_fetch_array($movieshows, OCI_BOTH)) != false) {								
+			while (($movieshowRow = oci_fetch_array($movieshows, OCI_BOTH)) != false) {		
+				$inside="true";
 				$starttime = date_format(date_create($movieshowRow['STARTTIME']), 'Y-m-d H:i:s');				
 				$movieid = searchForMovieId($movieshowRow['MOVIEID'],$result);				
 				echo "<br>";
@@ -58,17 +60,20 @@
 				echo "</form>";
 				echo "</div>";
 			}
-		}
+		}		
+		return $inside;
 	}
 	
 	function getMoviesBasedOnMovieName($searchText,$conn) {
+		$inside = "false";
 		$searchQuery = "select * from movies where upper(moviename) like '%".strtoupper($searchText)."%'";		
 		$movieMatches = oci_parse($conn, $searchQuery);
 		oci_execute($movieMatches);
 		while (($row = oci_fetch_array($movieMatches, OCI_BOTH)) != false) {		
 			$movieshows = oci_parse($conn, "select showid,movieid,screenid,theatreid,to_char(starttime, 'yyyy-mm-dd hh24:mi:ss') as starttime, price from movieshow where starttime >=sysdate and movieid = ".$row['MOVIEID']."order by starttime");			
 			oci_execute($movieshows);			
-			while (($movieshowRow = oci_fetch_array($movieshows, OCI_BOTH)) != false) {								
+			while (($movieshowRow = oci_fetch_array($movieshows, OCI_BOTH)) != false) {	
+				$inside= "true";
 				$starttime = date_format(date_create($movieshowRow['STARTTIME']), 'Y-m-d H:i:s');
 				$theatreDetails = oci_parse($conn, "select theatrename from theatres where theatreid=".$movieshowRow['THEATREID']);
 				oci_define_by_name($theatreDetails, 'THEATRENAME', $theatrename);				
@@ -97,20 +102,27 @@
 				echo "</div>";
 			}
 		}
+		
+		return $inside;
 	}
-	
-	getMoviesBasedOnZipOrTheatreName($theatreSearchContent,$conn);	
-	
+	$count = 0;
+	$output = getMoviesBasedOnZipOrTheatreName($theatreSearchContent,$conn);
+	if($output=="true") {$count +=1;}
 	$splitSearchText= explode(" ", $theatreSearchContent);	
 	if(count($splitSearchText) > 1 ) {
 		foreach($splitSearchText as $key => $val) {
-			getMoviesBasedOnZipOrTheatreName($splitSearchText[$key], $conn);
+			$output=getMoviesBasedOnZipOrTheatreName($splitSearchText[$key], $conn);
+			if($output=="true") {$count +=1;}
 		}
-	}
+	}	
 	if(!empty($theatreSearchContent)) {
-		getMoviesBasedOnMovieName($theatreSearchContent,$conn);
-	}
 	
+		$output=getMoviesBasedOnMovieName($theatreSearchContent,$conn);
+		if($output=="true") {$count +=1;}	
+	}	
+	if ($count==0) {
+		echo "<span style='color:red;'>Movie Shows Not Available</span>";
+	}	
 ?>
 </div>
 <?php

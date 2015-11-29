@@ -8,11 +8,12 @@
 	}
 ?>
 <form name="screens" action="addscreens.php"  method="POST">		
+	<center>
 		<fieldset >
 			<legend>ADD SCREENS</legend>		
 
 			<div class='container'>
-				<input type='submit' name='Submit' value='Register' />
+				<input type='submit' name='Submit' value='Add Screens' />
 			</div>
 			<div class='container'>
 				<label for='screenname' >Sreen Name*: </label><br>
@@ -29,12 +30,8 @@
 				<input type='text' name='seatcount' id='seatcount' maxlength="50" />
 				
 			</div>
-
-			
-			
-			
-			
 		</fieldset>
+	</center>
 	</form>
 <?php
 	include('footer.php');

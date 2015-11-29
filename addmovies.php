@@ -13,14 +13,14 @@
 	$studio = $_POST['studio'];	
 	$description = $_POST['description'];	
 	$rating = $_POST['rating'];	
-	$insert_movies = oci_execute(oci_parse($conn, "insert into movies (moviename,movielength,producer,moviereleaseyear,boxofficecollection,genre,director,language,studio,description,rating) values('".$moviename."','".$movielength."','".$producer."','".$moviereleaseyear."','".$boxofficecollection."','".$genre."','".$director."','".$language."','".$studio."','".$description."','".$rating."')"),OCI_DEFAULT);
+	$insert_movies = oci_execute(oci_parse($conn, "insert into movies (movieid,moviename,movielength,producer,moviereleaseyear,boxofficecollection,genre,director,language,studio,description,rating) values(movie_id_seq.nextval,'".$moviename."','".$movielength."','".$producer."','".$moviereleaseyear."','".$boxofficecollection."','".$genre."','".$director."','".$language."','".$studio."','".$description."','".$rating."')"),OCI_DEFAULT);
 	
 	if($insert_movies) {
 		oci_commit($conn);
-		header("Location: /ticket-booking/index.php?status=reg-success");
+		header("Location: /ticket-booking/index.php");
 	}	
 	else {		
-		header("Location: /ticket-booking/index.php?status=reg-fail");
+		header("Location: /ticket-booking/index.php");
 		oci_rollback($conn);
 	}
 	

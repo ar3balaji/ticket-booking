@@ -1,5 +1,5 @@
 <?php	
-session_start();
+	session_start();
 	include ('includes/dbconn.php');	
 	$conn = oci_connect($dbUserName, $dbPassword, $db);	
 	$username=isset($_SESSION['username']) ? $_SESSION['username'] : "no" ;
@@ -17,10 +17,10 @@ session_start();
 	
 	if($insert_post) {
 		oci_commit($conn);
-		header("Location: /ticket-booking/index.php?status=reg-success");
+		header("Location: /ticket-booking/viewpost.php");
 	}	
 	else {		
-		//header("Location: /ticket-booking/index.php?status=reg-fail");
+		header("Location: /ticket-booking/viewpost.php");
 		oci_rollback($conn);
 	}
 	

@@ -26,7 +26,8 @@
 						<li><a href="/ticket-booking/my-account.php">My Account</a></li> |
 						<li><a href="/ticket-booking/movies.php">Movies</a></li> |
 						<li><a href="/ticket-booking/discussion-forum.php">Discussion Forum</a></li> |
-						
+						<li><a href="/ticket-booking/get-tickets.php">Get Booked Tickets</a></li> |							
+						<li><a href="/ticket-booking/queries.php">Queries</a></li> |
 						<?php
 							include ('includes/dbconn.php');	
 							$con = oci_connect($dbUserName, $dbPassword, $db);
@@ -36,15 +37,15 @@
 							$numrows = oci_fetch_all($resource, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 							oci_close($con);
 							if($numrows>0) {
-						?>						
-						<li><a href="/ticket-booking/theatres.php">Add Theatres</a></li> |									
-						<li><a href="/ticket-booking/movies.php">Add Movies</a></li> |	
-                        <li><a href="/ticket-booking/screens.php">Add Screens</a></li> |							
+						?>
+						<li><a href="/ticket-booking/theatres.php">Add Theatres</a></li> |	
+                        <li><a href="/ticket-booking/screens.php">Add Screens</a></li> |						
+						<li><a href="/ticket-booking/add-movies.php">Add Movies</a></li> |			
 						<li><a href="/ticket-booking/">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/make-admin.php">Make Admin</a></li> |			
-						<li><a href="/ticket-booking/">Guest Users</a></li> |			
-						<li><a href="/ticket-booking/">Query Interface</a></li> |			
+						<li><a href="/ticket-booking/guest-users.php">Guest Users</a></li> |			
+						<li><a href="/ticket-booking/query-interface.php">Query Interface</a></li> |			
 						<?php } ?>						
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
 					</ul>
@@ -57,6 +58,8 @@
 						&nbsp;&nbsp;<a href="/ticket-booking/discussion-forum.php">Discussion Forum</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/movies.php">Movies</a>
 						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/get-tickets.php">Get Booked Tickets</a>
+						&nbsp;&nbsp;<a href="/ticket-booking/queries.php">Queries</a>
 					</span>
 				</h2>
 				<div class="loginform">
