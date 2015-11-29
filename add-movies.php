@@ -13,7 +13,7 @@
 			<legend>ADD MOVIES</legend>		
 
 			<div class='container'>
-				<input type='submit' name='Submit' value='Register' />
+				<input type='submit' name='Submit' value='Add Movie' />
 			</div>
 			<div class='container'>
 				<label for='moviename' >Movie Name*: </label><br>
@@ -65,7 +65,7 @@
 			</div>
 			<div class='container' style='height:60px;'>
 				<label for='description' >Description*:</label><br>		
-				<input type='text' name='description' id='description' maxlength="10" />				
+				<input type='text' name='description' id='description'  />				
 				<span id='register_phoneno' class='error' style='clear:both'></span>
 			</div>
 			<div class='container' style='height:60px;'>

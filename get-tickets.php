@@ -42,7 +42,7 @@
 			} else {
 				oci_execute($res);
 				usleep(100); 
-				print "<TABLE border \"1\">"; 
+				print "<TABLE style='width:100%' border \"1\">"; 
 				$first = 0; 
 				while ($row = @oci_fetch_assoc($res)){ 
 					   if (!$first){ 

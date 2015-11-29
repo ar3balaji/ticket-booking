@@ -251,3 +251,26 @@ span.more-details {
 #edit-phonenoid,#notifications {
 	text-decoration:underline;cursor:pointer;
 }
+div.comment {
+	background-color: lightgray;
+	margin-top: 5px;
+	width: 970px;
+	display: block;
+	position: relative;
+	float: left;
+	padding: 5px;
+	font-size:16px;
+	font-family: Century Gothic;
+}
+
+div.post {
+	background-color: gray;
+	margin-top: 15px;
+	width: 970px;
+	display: block;
+	position: relative;
+	float: left;
+	padding: 15px;
+	font-size:22px;
+	font-family: Century Gothic;
+}

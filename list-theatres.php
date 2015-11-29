@@ -25,7 +25,9 @@
 		$searchQuery = "select * from theatres where upper(theatrename) like '%".strtoupper($searchText)."%'";
 		if(is_numeric($searchText)){
 			$searchQuery = "select * from theatres where zip = ".$searchText;
+			echo "inside";
 		}				
+		echo $searchQuery;
 		$theatreids = oci_parse($conn, $searchQuery);
 		oci_execute($theatreids);
 		while (($row = oci_fetch_array($theatreids, OCI_BOTH)) != false) {		

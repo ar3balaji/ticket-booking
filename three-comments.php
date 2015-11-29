@@ -7,33 +7,8 @@
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
 ?>
-
-<script>
-		function validateValues() {
-			var content = document.forms["register"]["comment"].value;			
-			var result = true;				
-			$('#error-content').text("");								
-			if (content == null || content == "") {
-				$('#error-content').text("Enter the comment text");			
-				result = false;				
-			}						
-			return result;
-		}
-</script>
 <?php 	
-	$postid = $_GET['postid'];
-	
-	if (isset($_SESSION['username'])){
-		echo "<form name='register' action='/ticket-booking/create-comment.php' onsubmit='return validateValues()' method='post'>";
-		echo "Comment Text: <br><input style='width:60%;height:5%;' type='text' id='comment' name='comment' placeholder='Enter Comment !!'>&nbsp;";		
-		echo "<input type='submit' name='submit' value='Post' />";
-		echo "<br>";
-		echo "<span id='error-content' class='error'></span>";
-		echo "<input type=hidden name='postid' value=".$postid.">";
-		echo "</form>";
-	}
-
- 	
+	$postid = $_GET['postid']; 	
 	oci_execute(oci_parse($conn,"update post set visits = visits + 1 where postid =".$postid));
 	$query = "select post.postid,createspost.userid,title,content,visits from post,createspost where post.POSTID=createspost.POSTID and post.postid=".$postid; 
 	$users = oci_parse($conn, $query);
@@ -54,7 +29,7 @@
 		echo "</div>";
 	}	
 	
-	$query = "select commenttext,userid from comments,makescomment where comments.COMMENTID=makescomment.COMMENTID and comments.postid=".$postid." order by createddate desc"; 
+	$query = "select * from (select commenttext,userid from comments,makescomment where comments.COMMENTID=makescomment.COMMENTID and comments.postid=".$postid." order by createddate desc) a where rownum<=3"; 
 	$users = oci_parse($conn, $query);
 	oci_execute($users);	
 	echo "<br>";

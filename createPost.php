@@ -1,5 +1,5 @@
 <?php	
-session_start();
+	session_start();
 	include ('includes/dbconn.php');	
 	$conn = oci_connect($dbUserName, $dbPassword, $db);	
 	$username=isset($_SESSION['username']) ? $_SESSION['username'] : "no" ;

@@ -9,15 +9,15 @@
 	$zip = $_POST['zip'];
 	$country = $_POST['country'];
 	$city = $_POST['city'];
-	$state = $_POST['state'];	
-	$insert_theatres = oci_execute(oci_parse($conn, "insert into theatres (theatrename,location,contactperson,contactphoneno,zip,country,city,state) values('".$theatrename."','".$location."','".$contactperson."','".$contactphoneno."','".$zip."','".$country."','".$city."','".$state."')"),OCI_DEFAULT);
+	$state = $_POST['state'];		
+	$insert_theatres = oci_execute(oci_parse($conn, "insert into theatres (theatreid,theatrename,location,contactperson,contactphoneno,zip,country,city,state) values(theatre_id_sequence.nextval,'".$theatrename."','".$location."','".$contactperson."','".$contactphoneno."',".$zip.",'".$country."','".$city."','".$state."')"),OCI_DEFAULT);
 	
 	if($insert_theatres) {
 		oci_commit($conn);
-		header("Location: /ticket-booking/index.php?status=reg-success");
+		header("Location: /ticket-booking/index.php");
 	}	
 	else {		
-		header("Location: /ticket-booking/index.php?status=reg-fail");
+		header("Location: /ticket-booking/index.php");
 		oci_rollback($conn);
 	}
 	
