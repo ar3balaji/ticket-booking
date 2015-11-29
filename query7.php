@@ -9,13 +9,7 @@
 	
 ?>
 <?php
-	$resource = oci_parse($conn, "SELECT * FROM notify WHERE userid = '".$_SESSION['username']."'");
-	oci_execute($resource, OCI_DEFAULT);
-	
-	$results=array();
-	$numrows = oci_fetch_all($resource, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
-	if($numrows != 0) {
-		$res = oci_parse($conn,"select * from NOTIFY where userid='".$_SESSION['username']."'"); 
+		$res = oci_parse($conn,"select last.theatreid, last.theatrename, last.count as ticketcount from (select theatres.theatreid, theatrename,b.count from theatres,(select theatreid, count(*) as count from (select ticketid,tickets.showid,theatreid from tickets,movieshow where tickets.SHOWID=movieshow.SCREENID) a group by a.theatreid)b where theatres.THEATREID=b.theatreid order by count desc) last where rownum <=10"); 
 		usleep(100); 		
 		$r = oci_execute($res);
 		usleep(100); 
@@ -33,9 +27,6 @@
 			print "</TD></TR>\n"; 
 		} 
 		print "</TABLE>";
-		} else {
-			echo "<span style='color:green'> No Notifications Found</span>";
-		}
 ?>
 <?php
 	include('footer.php');
