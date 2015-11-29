@@ -50,7 +50,12 @@
 		oci_execute($movies);
 		while (($row = oci_fetch_array($movies, OCI_BOTH)) != false) {												
 			echo "<br>";
-			echo "<div class='movie'>";			
+			echo "<div class='movie'>";					
+			echo "<a class='review' href= '/ticket-booking/view-reviews.php?type=movie&movieid=".$row['MOVIEID']."'>View Review</a>";
+			if (isset($_SESSION['username'])){		
+				echo "&nbsp;<a  class='review' href='/ticket-booking/reviews.php?type=movie&movieid=".$row['MOVIEID']."'>Write Review</a>";
+			}
+			echo "<br>";
 			echo "<span class='title'>Movie: </span><span class='titleValue'>".$row['MOVIENAME']."</span><span class='more-details'>&nbsp;&nbsp;&nbsp;<img src='includes/more.png'/ title='More Details'></span>";
 			echo "<br>";
 			echo "<span class='title'>Movie Length: </span><span class='titleValue'>".$row['MOVIELENGTH']."</span><span class='rating'>&nbsp;&nbsp;&nbsp;<img src='includes/likes.png'/ title='Users Rating'>".number_format( ($row['RATING'] / 10) * 100, 0)."%</span>";

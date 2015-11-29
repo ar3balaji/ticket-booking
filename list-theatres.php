@@ -42,6 +42,11 @@
 				echo "<br>";
 				echo "<div class='movie'>";
 				echo "<form action='/ticket-booking/ticket-selection.php' method='post'>";
+				echo "<a class='review' href= '/ticket-booking/view-reviews.php?type=theatre&theatreid=".$movieshowRow['THEATREID']."'>View Review</a>";
+				if (isset($_SESSION['username'])){		
+					echo "&nbsp;<a  class='review' href='/ticket-booking/reviews.php?type=theatre&theatreid=".$movieshowRow['THEATREID']."'>Write Review</a>";
+				}
+				echo "<br>";
 				echo "<span class='title'>Theatre: </span><span class='titleValue'>".$row['THEATRENAME']."</span>";
 				echo "<br>";
 				echo "<span class='title'>Movie: </span><span class='titleValue'>".$result[$movieid]['MOVIENAME']."</span><span class='rating'>&nbsp;&nbsp;&nbsp;<img src='includes/likes.png'/ title='Users Rating'>".number_format( ($result[$movieid]['RATING'] / 10) * 100, 0)."%</span>";
@@ -81,6 +86,11 @@
 				echo "<br>";
 				echo "<div class='movie'>";
 				echo "<form action='/ticket-booking/ticket-selection.php' method='post'>";
+				echo "<a class='review' href= '/ticket-booking/view-reviews.php?type=theatre&theatreid=".$movieshowRow['THEATREID']."'>View Review</a>";
+				if (isset($_SESSION['username'])){		
+					echo "&nbsp;<a  class='review' href='/ticket-booking/reviews.php?type=theatre&theatreid=".$movieshowRow['THEATREID']."'>Write Review</a>";
+				}
+				echo "<br>";
 				while (oci_fetch($theatreDetails)) {
 					echo "<span class='title'>Theatre: </span><span class='titleValue'>".$theatrename."</span>";
 					echo "<input type=hidden name='theatrename' value=\"".$theatrename."\">";
