@@ -57,12 +57,13 @@
 				<h2> 
 					Login
 					<span style="float:right">
-						<a href="/ticket-booking/register.php">Register</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/discussion-forum.php">Discussion Forum</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/movies.php">Movies</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/index.php">Home</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/get-tickets.php">Get Booked Tickets</a>
-						&nbsp;&nbsp;<a href="/ticket-booking/queries.php">Queries</a>
+						<a style='font-size:16px' href="/ticket-booking/index.php">Home</a>
+						&nbsp;&nbsp;<a style='font-size:16px' href="/ticket-booking/register.php">Register</a>
+						&nbsp;&nbsp;<a style='font-size:16px' href="/ticket-booking/movies.php">Movies</a>	
+						&nbsp;&nbsp;<a style='font-size:16px' href="/ticket-booking/discussion-forum.php">Discussion Forum</a>											
+						&nbsp;&nbsp;<a style='font-size:16px' href="/ticket-booking/get-tickets.php">Get Booked Tickets</a>
+						&nbsp;&nbsp;<a style='font-size:16px' href="/ticket-booking/queries.php">Queries</a>
+						&nbsp;&nbsp;<a style='font-size:16px' href="/ticket-booking/guest-information.php">Guest Info</a>
 					</span>
 				</h2>
 				<div class="loginform">

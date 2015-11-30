@@ -17,6 +17,10 @@
 			$('#user_email').text("Enter users Email Id");			
 			result = false;				
 		}
+		if(!re.test(email)) {
+				$('#user_email').text("Enter Correct Email Id");			
+				result = false;
+		}
 		return result;
 	}
 </script>
