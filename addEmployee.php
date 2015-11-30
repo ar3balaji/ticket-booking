@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	    
 	    if($numberofrows!=0)
 	    {
-	    	echo "User already added as an employee with id:".$array["EMPLOYEEID"][0];
+	    	echo "<span style='color:red'>User already added as an employee with id:</span>".$array["EMPLOYEEID"][0];
 	    }
 	    else 
 	    {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	    	//echo $query;
 	    	if($numberofrows3 && $numberofrows2)
 	    	{
-	    		echo "Added";
+	    		echo "<span style='color:green'>Added</span>";
 	    	}
 	    	
 	}

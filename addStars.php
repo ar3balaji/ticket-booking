@@ -21,7 +21,11 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	if($insert_actor)
 	{
 		oci_commit($conn);
-		echo "Inserted";
+		echo "<span style='color:green'>Inserted</span>";
+	}
+	else 
+		
+	{	echo "<span style='color:red'>Failed Insert</span>";
 	}
 	oci_close($conn);
 }

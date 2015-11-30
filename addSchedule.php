@@ -63,41 +63,41 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	
 	if($numberofrows2==0)
 	{
-		echo "Insert failed: Employee does not exist";
+		echo "<span style='color:red'>Insert failed: Employee does not exist</span>";
 	}
 	else if($numberofrows>1)
 	{
-		echo "here";
+		//echo "here";
 		if(isset($array["THEATREID"]))
-		echo "Insert failed as the employee is scheduled to work for another theatre with ID:".$array["THEATREID"][0];
+		echo "<span style='color:red'>Insert failed as the employee is scheduled to work for another theatre with ID:</span>".$array["THEATREID"][0];
 	}
 	else if($numberofrows5>0)
 	{
-		echo "here1";
+		//echo "here1";
 		if(isset($array5["WORKTYPE"]))
-			echo "Insert failed as the employee is assigned with the work -".$array5["WORKTYPE"][0]." during same time in same theatre.";
+			echo "<span style='color:red'>Insert failed as the employee is assigned with the work -".$array5["WORKTYPE"][0]." during same time in same theatre.</span>";
 	}
 	else if($numberofrows3>0)
 	{
-		echo "here2";
+		//echo "here2";
 		if(isset($array3["EMPLOYEEID"]))
-			echo "Insert failed as another employee with ID -".$array3["EMPLOYEEID"][0]." works during same time on same work type in same theatre.";
+			echo "<span style='color:red'>Insert failed as another employee with ID -".$array3["EMPLOYEEID"][0]." works during same time on same work type in same theatre.</span>";
 	}
 	else if($numberofrows4==0)
 	{
-		echo "here3";
+		//echo "here3";
 		if(isset($array4["WORKTYPE"]))
 		{
-		echo "Insert failed as the workpreference for the employee don't permit to assign the task:".$wtype;			
+		echo "<span style='color:red'>Insert failed as the workpreference for the employee don't permit to assign the task:</span>".$wtype;			
 		}
 		
 	}
 	else if (oci_execute($cdquery,OCI_DEFAULT)) {
 		oci_commit($conn);
-		echo "Inserted";
+		echo "<span style='color:green'>Inserted</span>";
 	}
 	else {
-		echo "Insert failed as the employee entered is not present";
+		echo "<span style='color:red'>Insert failed as the employee entered is not present</span>";
 		//echo oci_error();
 	}
 	

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	
 	if($numberofrows2>0)
 	{
-		echo "The actor already linked to movie with role:".$array2["ROLE"][0];
+		echo "<span style='color:red'>The actor already linked to movie with role:</span>".$array2["ROLE"][0];
 	}
 	
 	else 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	if($insert_actor)
 	{
 		oci_commit($conn);
-		echo "Linked";
+		echo "<span style='color:green'>Linked</span>";
 	}
 	}
 	oci_close($conn);

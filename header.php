@@ -40,7 +40,8 @@
 						?>
 						<li><a href="/ticket-booking/theatres.php">Add Theatres</a></li> |	
                         <li><a href="/ticket-booking/screens.php">Add Screens</a></li> |						
-						<li><a href="/ticket-booking/add-movies.php">Add Movies</a></li> |			
+						<li><a href="/ticket-booking/add-movies.php">Add Movies</a></li> |	
+						<li><a href="/ticket-booking/addMovieShow.php">Add Show</a></li> |		
 						<li><a href="/ticket-booking/workSchedule.php">Work Schedule</a></li> |			
 						<li><a href="/ticket-booking/addEmployee.php">Add Employee</a></li> |			
 						<li><a href="/ticket-booking/make-admin.php">Make Admin</a></li> |			
