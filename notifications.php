@@ -9,7 +9,7 @@
 	
 ?>
 <?php
-	$resource = oci_parse($conn, "SELECT * FROM notify WHERE userid = '".$_SESSION['username']."'");
+	$resource = oci_parse($conn, "SELECT * FROM notify WHERE entrydt >= trunc(sysdate) and userid = '".$_SESSION['username']."'");
 	oci_execute($resource, OCI_DEFAULT);
 	
 	$results=array();

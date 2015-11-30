@@ -10,7 +10,9 @@
 	
 	$results=array();
 	$numrows = oci_fetch_all($resource, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+	oci_execute(oci_parse($conn, "BEGIN ALERTMANAGER (); END;"));
 	oci_close($conn);
+	
 	
 	if ($numrows != 0) {
 		$_SESSION['username'] = $username;

@@ -106,8 +106,8 @@
 			</div>
 			
 			<div class='container' style='height:60px;'>
-				<label for='contactperson' >contactperson*:</label><br>		
-				<input type='text' name='contactperson' id='contactperson' maxlength="50" />				
+				<label for='contactperson' >Enter Manager / Contact person Emailid*:</label><br>		
+				<input type='text' name='contactperson' id='contactperson' maxlength="100" />				
 				<span id='register_contactperson' class='error' style='clear:both'></span>
 			</div>	
 			

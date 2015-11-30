@@ -15,7 +15,7 @@
 	$review = $_POST['review'];
 	if($type=="movie") {
 		$movieid=$_POST['movieid'];		
-		$insert_moviereview = oci_execute(oci_parse($conn, "BEGIN INSERTMOVIEREVIEW(".$vote.",'".$summary."','".$review."','".$username."',".$movieid."); END;"),OCI_DEFAULT);
+		$insert_moviereview = oci_execute(oci_parse($conn, "BEGIN INSERTMOVIEREVIEW(".$vote.",'".$summary."','".$review."','".$username."',".$movieid."); END;"));
 		if($insert_moviereview) {		 
 			echo "<span style='color:green'>Review Created</span>";
 		}	
@@ -25,7 +25,7 @@
 	}
 	else {
 		$theatreid=$_POST['theatreid'];		
-		$insert_theatrereview = oci_execute(oci_parse($conn, "BEGIN INSERTTHEATREREVIEW(".$vote.",'".$summary."','".$review."','".$username."',".$theatreid."); END;"),OCI_DEFAULT);
+		$insert_theatrereview = oci_execute(oci_parse($conn, "BEGIN INSERTTHEATREREVIEW(".$vote.",'".$summary."','".$review."','".$username."',".$theatreid."); END;"));
 		if($insert_theatrereview) {		 
 			echo "<span style='color:green'>Review Created</span>";
 		}	
