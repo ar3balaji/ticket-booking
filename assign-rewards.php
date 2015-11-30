@@ -10,11 +10,25 @@
 <script type="text/javascript">
 	function validateValues() {	
 		var email = document.forms["admin-form"]["admin-emailid"].value;
+		var rewardpoints = document.forms["admin-form"]["rewardpoints"].value;
 		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 		var result = true;		
 		$('#register_email').text("");
+		$('#register_rewardpoints').text("");
 		if (email == null || email == "") {
 			$('#register_email').text("Enter users Email Id");			
+			result = false;				
+		}
+		if(!re.test(email)) {
+			$('#register_email').text("Enter users Email Id");			
+			result = false;
+		}
+		if (rewardpoints == null || rewardpoints == "") {
+			$('#register_rewardpoints').text("Enter users rewardpoints");			
+			result = false;				
+		}
+		if(rewardpoints.match(/^[0-9]+$/) === null) {
+			$('#register_rewardpoints').text("Enter numbers only for rewardpoints");			
 			result = false;				
 		}
 		return result;
@@ -23,19 +37,19 @@
 <div class="movie">
 	<form action="validaterewards.php" name="admin-form" onsubmit="return validateValues();" method='post'>
 		<span class="title">Choose the Membership Status</span><br>
-		<input type="radio" name="user-type" value="nochange" checked="checked">&nbsp;No Change<br>
-		<input type="radio" name="user-type" value="bronze" >&nbsp;Bronze<br>
-		<input type="radio" name="user-type" value="silver">&nbsp;Silver<br>
-		<input type="radio" name="user-type" value="gold">&nbsp;Gold<br>
-		<input type="radio" name="user-type" value="platinum">&nbsp;Platinum<br>		
+		<input type="radio" name="usertype" value="nochange" checked="checked">&nbsp;No Change<br>
+		<input type="radio" name="usertype" value="bronze" >&nbsp;Bronze<br>
+		<input type="radio" name="usertype" value="silver">&nbsp;Silver<br>
+		<input type="radio" name="usertype" value="gold">&nbsp;Gold<br>
+		<input type="radio" name="usertype" value="platinum">&nbsp;Platinum<br>		
 		Email Address of the User:&nbsp;<input type='text' name='emailid' id='admin-emailid'/><span id='register_email' class='error'></span><br>
 		Reward Points:&nbsp;<input type='text' name='rewardpoints' id='rewardpoints'/><span id='register_rewardpoints' class='error'></span><br>
-		<input type='submit' name='Submit' value='Go' />
+		<input type='submit' name='Submit' value='Change Status' />
 	</form>
 </div>
 <?php
 		echo "<h3>All User Reviews</h3>";
-		$res = oci_parse($conn,"select userid, summary,review,vote from((select review.REVIEWID,moviereview.USERID,review.SUMMARY,review.REVIEW,review.VOTE from review,moviereview where review.REVIEWID=moviereview.REVIEWID) union (select review.REVIEWID,THEATREREVIEW.USERID,review.SUMMARY,review.REVIEW,review.VOTE from review,THEATREREVIEW where review.REVIEWID=THEATREREVIEW.REVIEWID)) order by userid"); 
+		$res = oci_parse($conn,"select reviewtype,userid, summary,review,vote from((select 'Movie Review' as REVIEWTYPE,review.REVIEWID,moviereview.USERID,review.SUMMARY,review.REVIEW,review.VOTE from review,moviereview where review.REVIEWID=moviereview.REVIEWID) union (select 'Theatre Review' as REVIEWTYPE, review.REVIEWID,THEATREREVIEW.USERID,review.SUMMARY,review.REVIEW,review.VOTE from review,THEATREREVIEW where review.REVIEWID=THEATREREVIEW.REVIEWID)) order by userid"); 
 		usleep(100); 		
 		$r = oci_execute($res);
 		usleep(100); 
