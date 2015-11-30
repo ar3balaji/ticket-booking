@@ -48,7 +48,8 @@
 						<li><a href="/ticket-booking/guest-users.php">Guest Users</a></li> |
 						<li><a href="/ticket-booking/addStars.php">Add Stars</a></li> |	
 						<li><a href="/ticket-booking/displaySchedule.php">Display Schedule</a></li> |		
-						<li><a href="/ticket-booking/query-interface.php">Query Interface</a></li> |			
+						<li><a href="/ticket-booking/query-interface.php">Query Interface</a></li> |
+						<li><a href="/ticket-booking/assign-rewards.php">Assign Rewards</a></li> |						
 						<?php } ?>						
 						<li><a href="/ticket-booking/logout.php">Logout</a></li>						
 					</ul>
