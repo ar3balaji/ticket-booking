@@ -16,6 +16,17 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 		oci_fetch_all($cdquery1, $array);
 	    $numberofrows = oci_num_rows($cdquery1);
 	    
+	    $cdquery2=oci_parse($conn,"SELECT EMAILID FROM MOVIEUSER WHERE EMAILID='".$email."'");
+	    oci_execute($cdquery2);
+	    oci_fetch_all($cdquery2, $array2);
+	    $numberofrows2 = oci_num_rows($cdquery2);
+	    
+	    if($numberofrows2==0)
+	    {
+	    	echo "<span style='color:red'>User Id entered does not exist:</span>";
+	    }
+	    else 
+	    {
 	    if($numberofrows!=0)
 	    {
 	    	echo "<span style='color:red'>User already added as an employee with id:</span>".$array["EMPLOYEEID"][0];
@@ -51,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	    	{
 	    		echo "<span style='color:green'>Added</span>";
 	    	}
-	    	
+	    }
 	}
 	
 	oci_close($conn);
