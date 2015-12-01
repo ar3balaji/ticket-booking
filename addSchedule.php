@@ -109,17 +109,17 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	include ('includes/dbconn.php');
 	$conn = oci_connect($dbUserName, $dbPassword, $db);  
   
-  $cdquery=oci_parse($conn,"SELECT theatreid FROM theatres")or die ('None');
+  $cdquery=oci_parse($conn,"SELECT theatreid,THEATRENAME||','||location as THEATRENAME FROM theatres")or die ('None');
  $cdresult=oci_execute($cdquery);
   
  $categories[] = array("id" => "none", "val" =>"none");
  while ($row=oci_fetch_array($cdquery, OCI_ASSOC+OCI_RETURN_NULLS)) 
   {
   		
-  	if(isset($row["THEATREID"]))
+  	if(isset($row["THEATREID"],$row["THEATRENAME"]))
   	{
   	
-   	$categories[] = array("id" => $row["THEATREID"], "val" => $row["THEATREID"]);
+   	$categories[] = array("id" => $row["THEATREID"], "val" => $row["THEATRENAME"]);
   	}
   	
   }
@@ -258,7 +258,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 			</div>
 						
 			<div class='container'>
-			<label for='categoriesSelect' >Theatre ID*: </label><br>
+			<label for='categoriesSelect' >Theatre*: </label><br>
 			 <select id='categoriesSelect' name='categoriesSelect'>
     		 </select>
     		 <span id='register_categoriesSelect' class='error'></span>
