@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 	{
 		echo "<span style='color:red'>Insert failed: Employee does not exist</span>";
 	}
-	else if($numberofrows>1)
+	else if($numberofrows>0)
 	{
 		//echo "here";
 		if(isset($array["THEATREID"]))
